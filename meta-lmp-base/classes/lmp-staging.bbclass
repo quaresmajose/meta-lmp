@@ -10,6 +10,12 @@ INHERIT_KERNEL_MODSIGN = ""
 python __anonymous() {
     pn = d.getVar('PN')
 
+    if bb.data.inherits_class('image', d):
+        if 'cpio' in d.getVar('IMAGE_FSTYPES'):
+            d.appendVar('PACKAGE_EXCLUDE', ' os-release')
+            #d.appendVar('BAD_RECOMMENDATIONS', ' os-release')
+            #d.setVar('IMAGE_INSTALL_SOTA', '')
+
     if bb.data.inherits_class('module', d):
         d.appendVar('DEPENDS', ' virtual/kernel')
         if 'modsign' in d.getVar('DISTRO_FEATURES'):
