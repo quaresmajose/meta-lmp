@@ -31,3 +31,6 @@ do_deploy () {
 }
 
 addtask do_deploy after do_install
+
+H_BUILD = "${TIME}"
+H_BUILD[vardepsexclude] = "TIME"
