@@ -1,3 +1,5 @@
+PACKAGECONFIG += "fapi"
+
 # Prefer /usr/lib directories as they can't be erased/modified by the user
 EXTRA_OECONF += " \
     --with-sysusersdir=${nonarch_libdir}/sysusers.d \
