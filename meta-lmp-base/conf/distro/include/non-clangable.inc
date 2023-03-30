@@ -1,4 +1,7 @@
 
+# For more details, see https://github.com/kraj/meta-clang/pull/766.
+BBMASK:toolchain-clang += "/meta/recipes-devtools/llvm/llvm.*\.bb"
+
 # Depend on GNU objcopy option missing in llvm-objcopy
 # | [39/1637] /build/tmp-lmp/work/cortexa53-crypto-lmp-linux/systemd/1_250.5-r0/recipe-sysroot-native/usr/bin/aarch64-lmp-linux/aarch64-lmp-linux-llvm-objcopy -j '.bss*' -j .data -j .dynamic -j .dynsym -j .osrel -j '.rel*' -j .sbat -j .sdata -j .sdmagic -j .text --section-alignment=512 -O binary src/boot/efi/linuxaa64.elf.stub src/boot/efi/linuxaa64.efi.stub
 # | FAILED: src/boot/efi/linuxaa64.efi.stub
