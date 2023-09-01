@@ -11,3 +11,7 @@ PROVIDES += "virtual/trusted-firmware-a"
 EXTRA_OEMAKE:append:zynqmp = " SPD=opteed"
 EXTRA_OEMAKE:append:versal = " SPD=opteed"
 ATF_CONSOLE:kv260 = "cadence1"
+
+# Remove TF_LDFLAGS workaround
+# aarch64-lmp-linux-ld.bfd: unrecognized option '--no-warn-rwx-segments'
+EXTRA_OEMAKE:remove = ' TF_LDFLAGS="--no-warn-rwx-segments --fatal-warnings -O1 --gc-sections"'
