@@ -1,9 +1,9 @@
 FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
 
-UBRANCH = "xilinx-v2022.01-rebase"
-UBOOTURI = "git://github.com/foundriesio/u-boot.git;protocol=https"
+UBRANCH = "xilinx-v2023.01-rebase"
+UBOOTURI = "git://github.com/quaresmajose/u-boot.git;protocol=https"
 
-SRCREV = "0e833bd2e111fdc59d64aba6bd5121747f1afdda"
+SRCREV = "${AUTOREV}"
 
 include recipes-bsp/u-boot/u-boot-lmp-common.inc
 
