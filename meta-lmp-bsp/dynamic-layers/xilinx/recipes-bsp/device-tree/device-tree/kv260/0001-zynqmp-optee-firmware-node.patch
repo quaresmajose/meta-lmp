@@ -7,13 +7,13 @@ Add optee firmware node to zynqmp.dtsi.
 
 Signed-off-by: Igor Opaniuk <igor.opaniuk@foundries.io>
 ---
- .../kernel_dtsi/2022.1/zynqmp/zynqmp.dtsi     | 20 +++++++++++++++++++
+ .../kernel_dtsi/2023.1/zynqmp/zynqmp.dtsi     | 20 +++++++++++++++++++
  1 file changed, 20 insertions(+)
 
-diff --git a/device_tree/data/kernel_dtsi/2022.1/zynqmp/zynqmp.dtsi b/device_tree/data/kernel_dtsi/2022.1/zynqmp/zynqmp.dtsi
+diff --git a/device_tree/data/kernel_dtsi/2023.1/zynqmp/zynqmp.dtsi b/device_tree/data/kernel_dtsi/2023.1/zynqmp/zynqmp.dtsi
 index 2fe7c84..f2862a4 100644
---- a/device_tree/data/kernel_dtsi/2022.1/zynqmp/zynqmp.dtsi
-+++ b/device_tree/data/kernel_dtsi/2022.1/zynqmp/zynqmp.dtsi
+--- a/device_tree/data/kernel_dtsi/2023.1/zynqmp/zynqmp.dtsi
++++ b/device_tree/data/kernel_dtsi/2023.1/zynqmp/zynqmp.dtsi
 @@ -145,7 +145,27 @@
  		method = "smc";
  	};

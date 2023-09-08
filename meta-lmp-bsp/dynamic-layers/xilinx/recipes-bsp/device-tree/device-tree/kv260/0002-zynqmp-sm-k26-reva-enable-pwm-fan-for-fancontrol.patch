@@ -7,13 +7,13 @@ Upstream-Status: Inappropriate [lmp specific]
 
 Signed-off-by: Ricardo Salveti <ricardo@foundries.io>
 ---
- .../data/kernel_dtsi/2022.1/BOARD/zynqmp-sm-k26-reva.dtsi        | 1 +
+ .../data/kernel_dtsi/2023.1/BOARD/zynqmp-sm-k26-reva.dtsi        | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/device_tree/data/kernel_dtsi/2022.1/BOARD/zynqmp-sm-k26-reva.dtsi b/device_tree/data/kernel_dtsi/2022.1/BOARD/zynqmp-sm-k26-reva.dtsi
+diff --git a/device_tree/data/kernel_dtsi/2023.1/BOARD/zynqmp-sm-k26-reva.dtsi b/device_tree/data/kernel_dtsi/2023.1/BOARD/zynqmp-sm-k26-reva.dtsi
 index ed38811..90c33dc 100644
 --- a/device_tree/data/kernel_dtsi/2022.1/BOARD/zynqmp-sm-k26-reva.dtsi
-+++ b/device_tree/data/kernel_dtsi/2022.1/BOARD/zynqmp-sm-k26-reva.dtsi
++++ b/device_tree/data/kernel_dtsi/2023.1/BOARD/zynqmp-sm-k26-reva.dtsi
 @@ -90,6 +90,7 @@
  };
  
