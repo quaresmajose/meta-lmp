@@ -24,14 +24,6 @@ SRC_URI:append:beagleplay = " \
 "
 PACKAGECONFIG[optee] = "TEE=${STAGING_DIR_HOST}${nonarch_base_libdir}/firmware/tee-pager_v2.bin,,${PREFERRED_PROVIDER_virtual/optee-os}"
 
-# setting DEPENDS create dependency loops so skip the check
-LMPSTAGING_DEPLOYED_CHECK_SKIP += "${PN}:do_deploy"
-
-python() {
-    # we need to set the DEPENDS as well to produce valid SPDX documents
-    fix_deployed_depends('do_install', d)
-}
-
 # Root of Trust Key directory
 K3_ROT_KEYS ?= "CONFIG_SIGN_KEY_PATH=${TOPDIR}/conf/keys/platform/ti"
 EXTRA_OEMAKE += "$K3_ROT_KEYS"
