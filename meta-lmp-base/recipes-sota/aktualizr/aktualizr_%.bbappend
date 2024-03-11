@@ -6,6 +6,7 @@ SRCREV:lmp = "d2cd79e1dc6a3c992d37de4d1609d4bdf9b750ec"
 SRC_URI:remove:lmp = "gitsm://github.com/uptane/aktualizr;branch=${BRANCH};name=aktualizr;protocol=https"
 SRC_URI:append:lmp = " \
     gitsm://github.com/foundriesio/aktualizr-lite;protocol=https;branch=${BRANCH};name=aktualizr \
+    file://0001-fix-build-with-boost-1.84.0.patch \
     file://aktualizr-lite.service.in \
     file://tmpfiles.conf \
     "
