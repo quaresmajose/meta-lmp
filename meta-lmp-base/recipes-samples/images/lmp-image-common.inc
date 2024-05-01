@@ -37,12 +37,13 @@ CORE_IMAGE_BASE_INSTALL += " \
     networkmanager \
     nss-altfiles \
     pam-plugin-mkhomedir \
-    resize-helper \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'cfs', '', 'resize-helper', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'luks', 'luks-reencryption', '', d)} \
     mtd-utils \
     sudo \
     tzdata \
     zram \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'cfs', 'fsverity-utils', '', d)} \
 "
 
 # Additional packages when sota is available
