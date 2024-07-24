@@ -698,7 +698,6 @@ WKS_FILES:sota:versal = "sdimage-sota.wks"
 TI_COMMON_DEPLOY = "${DEPLOY_DIR}"
 DEPLOY_DIR_SPDX:append = "${@'/${MACHINE}' if 'ti-soc' in (d.getVar('SOC_FAMILY') or '').split(':') else ''}"
 UBOOT_SIGN_ENABLE:sota:k3 = "1"
-UBOOT_SIGN_KEYDIR:k3 ?= "${TOPDIR}/conf/keys"
 FIT_HASH_ALG:sota:k3 ?= "sha256"
 FIT_SIGN_ALG:sota:k3 ?= "rsa2048"
 KERNEL_IMAGETYPE:sota:k3 = "fitImage"
@@ -707,6 +706,12 @@ PREFERRED_PROVIDER_virtual/kernel:k3 ?= "linux-lmp-ti-staging"
 WKS_FILE_DEPENDS:append:k3 = " virtual/bootloader"
 OSTREE_DEPLOY_USR_OSTREE_BOOT:k3 = "${@bb.utils.contains('DISTRO_FEATURES', 'luks', '1', '0', d)}"
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS:remove:k3 = "kernel-image-image"
+python __anonymous() {
+    if 'k3' in d.getVar('MACHINEOVERRIDES').split(':'):
+        keydir = "${TOPDIR}/conf/keys"
+        if os.path.isdir(d.expand(keydir)):
+            d.setVar('UBOOT_SIGN_KEYDIR', keydir)
+}
 
 # TI AM62x
 MACHINE_FEATURES:append:am62xx = " optee"
