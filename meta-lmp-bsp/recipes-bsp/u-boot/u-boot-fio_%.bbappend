@@ -1,3 +1,1 @@
-FILESEXTRAPATHS:prepend := "${THISDIR}/${PN}:"
-
-require u-boot-fio-bsp-common.inc
+FILESEXTRAPATHS:prepend:lmp-mfgtool := "${THISDIR}/${PN}-mfgtool:"

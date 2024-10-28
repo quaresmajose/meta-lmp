@@ -21,11 +21,16 @@ SRC_URI:append = " \
     ${@bb.utils.contains('MACHINE_FEATURES', 'ebbr', 'file://lmp-ebbr.cfg', 'file://lmp.cfg', d)} \
 "
 
+FILESEXTRAPATHS:prepend:lmp-mfgtool := "${THISDIR}/${PN}-mfgtool:"
+SRC_URI:append:lmp-base = "lmp-base-common.cfg.bak"
+
 # LMP base requires different u-boot configuration fragments
 SRC_URI:append:lmp-base = " file://lmp-base-common.cfg file://lmp-base.cfg "
 SRC_URI:remove:lmp-base = "file://lmp.cfg"
 SRC_URI:remove:lmp-base = "file://lmp-common.cfg"
 SRC_URI:remove:lmp-base = "file://lmp-common-nosec.cfg"
+# Environment config is not required for mfgtool
+SRC_URI:remove:lmp-mfgtool = "file://fw_env.config"
 
 S = "${WORKDIR}/git"
 B = "${WORKDIR}/build"

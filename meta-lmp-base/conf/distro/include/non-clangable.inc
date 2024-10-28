@@ -199,7 +199,6 @@ TOOLCHAIN:pn-runc-opencontainers = "gcc"
 
 # U-boot does compile with clang but clang-15 crashes compiling it :(
 TOOLCHAIN:pn-u-boot-fio = "gcc"
-TOOLCHAIN:pn-u-boot-fio-mfgtool = "gcc"
 TOOLCHAIN:pn-u-boot-xlnx = "gcc"
 TOOLCHAIN:pn-u-boot-ti-staging = "gcc"
 
