@@ -147,6 +147,9 @@ IMAGE_BOOT_FILES:intel-corei7-64 = "${@bb.utils.contains('WKS_FILE', 'image-efi-
 IMAGE_EFI_BOOT_FILES:append:intel-corei7-64 = " lockdown.conf;loader/entries/doprovision_lock.conf unlock.conf;loader/entries/doprovision_unlock.conf LockDown.efi UnLock-signed.efi ${@make_efi_cer_boot_files(d)}"
 
 # Common for iMX targets
+FIT_CONF_PREFIX:mx8-nxp-bsp = "conf-freescale_"
+FIT_CONF_PREFIX:mx9-nxp-bsp = "conf-freescale_"
+
 ## Prefer IMX_DEFAULT_BSP=nxp as mainline removes every common machine override
 IMX_DEFAULT_BSP = "nxp"
 OSTREE_KERNEL_ARGS:mx6-generic-bsp ?= "console=tty1 console=ttymxc0,115200 ${OSTREE_KERNEL_ARGS_COMMON}"
@@ -503,6 +506,7 @@ OSTREE_DEPLOY_USR_OSTREE_BOOT:k3 = "${@bb.utils.contains('DISTRO_FEATURES', 'luk
 MACHINE_ESSENTIAL_EXTRA_RDEPENDS:remove:k3 = "kernel-image-image"
 
 # TI AM62x
+FIT_CONF_PREFIX:am62xx = "conf-ti_"
 MACHINE_FEATURES:append:am62xx = " optee"
 PREFERRED_PROVIDER_u-boot-fw-utils:am62xx = "libubootenv"
 PREFERRED_RPROVIDER_u-boot-fw-utils:am62xx = "libubootenv"
@@ -527,6 +531,7 @@ LMP_BOOT_FIRMWARE_FILES:beagleplay = "tispl.bin u-boot.img tiboot3.bin"
 LMP_BOOT_FIRMWARE_FILES:append:sota:beagleplay = " boot.itb"
 
 # TI AM64x
+FIT_CONF_PREFIX:am64xx = "conf-ti_"
 MACHINE_FEATURES:append:am64xx = " optee"
 PREFERRED_PROVIDER_u-boot-fw-utils:am64xx = "libubootenv"
 PREFERRED_RPROVIDER_u-boot-fw-utils:am64xx = "libubootenv"
