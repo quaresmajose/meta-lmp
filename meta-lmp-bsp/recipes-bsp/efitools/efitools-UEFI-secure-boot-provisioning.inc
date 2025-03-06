@@ -39,6 +39,10 @@ python do_prepare_local_auths() {
                 bb.fatal("File '%s' not found!" % src)
         shutil.copyfile(src, os.path.join(d.getVar('S'), file))
 }
+addtask prepare_local_auths after do_configure before do_compile
+do_prepare_local_auths[vardeps] += "UEFI_SIGN_ENABLE UEFI_SIGN_KEYDIR"
+
+deltask prepare_signing_keys
 
 do_deploy() {
     install -d ${DEPLOYDIR}
@@ -62,3 +66,4 @@ do_deploy() {
         install -m 0600 ${WORKDIR}/unlock.conf ${DEPLOYDIR}
     fi
 }
+addtask deploy after do_install before do_build
