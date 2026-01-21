@@ -18,3 +18,11 @@ RDEPENDS:${PN} += " \
     python3-pyudev \
     python3-requests \
 "
+
+do_install:append(){
+    cat <<'EOF'>>${D}${systemd_system_unitdir}/lava-dispatcher-host.service
+
+[Install]
+WantedBy=basic.target
+EOF
+}
