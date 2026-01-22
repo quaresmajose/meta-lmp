@@ -6,8 +6,8 @@ SRC_URI[sha256sum] = "ddb86e60174e3acb86a612aea523c0a0d40f317badf90ef1e4c8bdf9e9
 
 inherit systemd
 
-SYSTEMD_SERVICE:${PN} = "lava-dispatcher-host.service lava-docker-worker.service"
-#SYSTEMD_AUTO_ENABLE = "disable"
+# lava-docker-worker.service is also available
+SYSTEMD_SERVICE:${PN} = "lava-dispatcher-host.service"
 
 FILES:${PN} += "${localstatedir}/volatile"
 INSANE_SKIP:${PN} += "empty-dirs"
@@ -21,8 +21,10 @@ RDEPENDS:${PN} += " \
 
 do_install:append(){
     cat <<'EOF'>>${D}${systemd_system_unitdir}/lava-dispatcher-host.service
+ExecStartPre=/usr/bin/lava-dispatcher-host rules install
+ExecStartPre=/usr/bin/udevadm control --reload-rules
 
 [Install]
-WantedBy=basic.target
+WantedBy=multi-user.target
 EOF
 }
